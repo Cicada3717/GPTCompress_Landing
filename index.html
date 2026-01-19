@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GPTCompress – Your ChatGPT Conversations Are Disappearing</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         :root {
-            --text-primary: #0A1628;
-            --text-secondary: #64748B;
-            --accent: #2563EB;
-            --accent-hover: #1D4ED8;
-            --accent-secondary: #F59E0B;
-            --bg: #F8FAFC;
-            --surface: #FFFFFF;
-            --danger: #EF4444;
-            --success: #10B981;
-            --gradient-start: #1E40AF;
-            --gradient-end: #7C3AED;
+            --text-primary: #022c22;
+            --text-secondary: #64748b;
+            --accent: #10b981;
+            --accent-hover: #059669;
+            --accent-secondary: #34d399;
+            --bg: #ffffff;
+            --surface: #ffffff;
+            --danger: #ef4444;
+            --success: #10b981;
+            --gradient-start: #10b981;
+            --gradient-end: #06b6d4;
         }
-        
+
         body {
             font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
+            background: #ffffff;
             color: var(--text-primary);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        
+
         /* Navigation */
         nav {
             position: fixed;
@@ -50,15 +53,15 @@
             background: rgba(248, 250, 252, 0.72);
             backdrop-filter: saturate(180%) blur(20px);
             z-index: 9999;
-            border-bottom: 0.5px solid rgba(37, 99, 235, 0.08);
+            border-bottom: 0.5px solid rgba(16, 185, 129, 0.08);
             transition: all 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
         }
-        
+
         nav.scrolled {
             background: rgba(248, 250, 252, 0.95);
-            box-shadow: 0 1px 3px rgba(30, 64, 175, 0.06);
+            box-shadow: 0 1px 3px rgba(16, 185, 129, 0.06);
         }
-        
+
         .nav-content {
             max-width: 1024px;
             margin: 0 auto;
@@ -68,20 +71,20 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             font-size: 19px;
             font-weight: 600;
             letter-spacing: -0.02em;
             color: var(--text-primary);
         }
-        
+
         .nav-links {
             display: flex;
             gap: 32px;
             align-items: center;
         }
-        
+
         .nav-link {
             font-size: 12px;
             font-weight: 400;
@@ -89,11 +92,11 @@
             text-decoration: none;
             transition: opacity 0.2s ease;
         }
-        
+
         .nav-link:hover {
             opacity: 0.7;
         }
-        
+
         .nav-cta {
             padding: 4px 14px;
             background: var(--accent);
@@ -105,11 +108,11 @@
             cursor: pointer;
             transition: all 0.2s ease;
         }
-        
+
         .nav-cta:hover {
             background: var(--accent-hover);
         }
-        
+
         /* Hero Section - Fear-based messaging */
         .hero {
             min-height: 100vh;
@@ -120,14 +123,14 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero-content {
             max-width: 980px;
             text-align: center;
             position: relative;
             z-index: 2;
         }
-        
+
         /* Attention-grabbing label */
         .alert-badge {
             display: inline-flex;
@@ -143,7 +146,7 @@
             margin-bottom: 24px;
             animation: fadeInDown 0.8s ease;
         }
-        
+
         .alert-icon {
             width: 16px;
             height: 16px;
@@ -151,23 +154,33 @@
             border-radius: 50%;
             animation: pulse 2s ease-in-out infinite;
         }
-        
+
         @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(0.9); }
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(0.9);
+            }
         }
-        
+
         @keyframes fadeInDown {
             from {
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .hero h1 {
             font-size: clamp(40px, 7vw, 80px);
             font-weight: 700;
@@ -177,26 +190,27 @@
             opacity: 0;
             animation: fadeInUp 0.8s ease 0.2s forwards;
         }
-        
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .hero h1 .contrast {
             color: var(--text-secondary);
         }
-        
+
         .hero h1 .danger-text {
             color: var(--danger);
         }
-        
+
         .hero-subtitle {
             font-size: 21px;
             line-height: 1.47;
@@ -207,12 +221,156 @@
             opacity: 0;
             animation: fadeInUp 0.8s ease 0.4s forwards;
         }
-        
+
         .hero-subtitle strong {
             color: var(--text-primary);
             font-weight: 600;
         }
-        
+
+        /* Hero Visual */
+        .hero-visual-container {
+            margin-top: 48px;
+            position: relative;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+            perspective: 1000px;
+        }
+
+        .hero-stack {
+            position: relative;
+            width: 200px;
+            height: 160px;
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .stack-layer {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: var(--surface);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: var(--text-secondary);
+            transition: all 0.5s ease;
+        }
+
+        .stack-layer::after {
+            content: '';
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.5;
+        }
+
+        .stack-layer:nth-child(1) {
+            bottom: 0;
+            width: 100%;
+            z-index: 4;
+            transform: scale(1);
+        }
+
+        .stack-layer:nth-child(2) {
+            bottom: 20px;
+            width: 95%;
+            left: 2.5%;
+            z-index: 3;
+            transform: scale(0.98);
+            opacity: 0.8;
+        }
+
+        .stack-layer:nth-child(3) {
+            bottom: 40px;
+            width: 90%;
+            left: 5%;
+            z-index: 2;
+            transform: scale(0.96);
+            opacity: 0.6;
+        }
+
+        .stack-layer:nth-child(4) {
+            bottom: 60px;
+            width: 85%;
+            left: 7.5%;
+            z-index: 1;
+            transform: scale(0.94);
+            opacity: 0.4;
+        }
+
+        .hero-stack:hover .stack-layer:nth-child(1) {
+            transform: translateY(0) scale(1);
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.15);
+            border-color: var(--accent);
+        }
+
+        .hero-stack:hover .stack-layer:nth-child(2) {
+            transform: translateY(-10px) scale(0.98);
+            opacity: 0.9;
+        }
+
+        .hero-stack:hover .stack-layer:nth-child(3) {
+            transform: translateY(-20px) scale(0.96);
+            opacity: 0.8;
+        }
+
+        .hero-stack:hover .stack-layer:nth-child(4) {
+            transform: translateY(-30px) scale(0.94);
+            opacity: 0.7;
+        }
+
+        .compress-arrow {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--accent);
+            font-size: 24px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotateX(5deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotateX(5deg);
+            }
+        }
+
         /* CTAs */
         .hero-ctas {
             display: flex;
@@ -222,7 +380,7 @@
             opacity: 0;
             animation: fadeInUp 0.8s ease 0.6s forwards;
         }
-        
+
         .btn-primary {
             padding: 16px 40px;
             background: var(--accent);
@@ -234,15 +392,15 @@
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
             font-family: inherit;
-            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
         }
-        
+
         .btn-primary:hover {
             background: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
         }
-        
+
         .btn-secondary {
             padding: 16px 40px;
             background: transparent;
@@ -255,28 +413,28 @@
             transition: all 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
             font-family: inherit;
         }
-        
+
         .btn-secondary:hover {
-            background: rgba(37, 99, 235, 0.06);
+            background: rgba(16, 185, 129, 0.06);
             border-color: var(--accent);
         }
-        
+
         /* Visual Demo Section - The Gap */
         .demo-section {
             padding: 120px 22px;
             background: var(--surface);
         }
-        
+
         .demo-container {
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .section-header {
             text-align: center;
             margin-bottom: 80px;
         }
-        
+
         .section-label {
             font-size: 12px;
             font-weight: 600;
@@ -285,7 +443,7 @@
             color: var(--danger);
             margin-bottom: 16px;
         }
-        
+
         .section-title {
             font-size: clamp(32px, 5vw, 56px);
             font-weight: 700;
@@ -293,7 +451,7 @@
             line-height: 1.08;
             margin-bottom: 20px;
         }
-        
+
         .section-subtitle {
             font-size: 21px;
             line-height: 1.47;
@@ -301,13 +459,13 @@
             max-width: 720px;
             margin: 0 auto;
         }
-        
+
         /* Interactive Comparison */
         .comparison-wrapper {
             position: relative;
             margin-top: 80px;
         }
-        
+
         .comparison-toggle {
             display: flex;
             justify-content: center;
@@ -319,7 +477,7 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         .toggle-btn {
             flex: 1;
             padding: 12px 24px;
@@ -333,30 +491,37 @@
             border-radius: 6px;
             font-family: inherit;
         }
-        
+
         .toggle-btn.active {
             background: var(--surface);
             color: var(--text-primary);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
-        
+
         .comparison-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 32px;
             position: relative;
         }
-        
+
         .comparison-side {
             padding: 48px;
-            background: var(--bg);
+            background: #fafafa;
             border-radius: 8px;
             border: 2px solid rgba(0, 0, 0, 0.06);
             transition: all 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
             min-height: 600px;
             position: relative;
+            cursor: pointer;
         }
-        
+
+        .comparison-side:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
         .side-header {
             display: flex;
             justify-content: space-between;
@@ -365,12 +530,12 @@
             padding-bottom: 24px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
-        
+
         .side-title {
             font-size: 19px;
             font-weight: 600;
         }
-        
+
         .side-badge {
             padding: 4px 12px;
             border-radius: 100px;
@@ -379,17 +544,17 @@
             text-transform: uppercase;
             letter-spacing: 0.06em;
         }
-        
+
         .badge-problem {
             background: rgba(255, 59, 48, 0.1);
             color: var(--danger);
         }
-        
+
         .badge-solution {
             background: rgba(52, 199, 89, 0.1);
             color: var(--success);
         }
-        
+
         /* Messages */
         .message-stream {
             display: flex;
@@ -400,16 +565,16 @@
             scrollbar-width: thin;
             scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
         }
-        
+
         .message-stream::-webkit-scrollbar {
             width: 4px;
         }
-        
+
         .message-stream::-webkit-scrollbar-thumb {
             background: rgba(0, 0, 0, 0.2);
             border-radius: 2px;
         }
-        
+
         .message {
             padding: 16px 20px;
             background: var(--surface);
@@ -421,18 +586,19 @@
             opacity: 0;
             animation: messageSlide 0.4s ease forwards;
         }
-        
+
         @keyframes messageSlide {
             from {
                 opacity: 0;
                 transform: translateY(10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .message-count {
             text-align: center;
             padding: 20px;
@@ -440,27 +606,30 @@
             color: var(--text-secondary);
             font-style: italic;
         }
-        
+
         /* Compressed View */
         .compressed-blocks {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
-        
+
         .compressed-block {
             padding: 24px;
-            background: var(--surface);
+            background: #fafafa;
             border-radius: 6px;
             border-left: 3px solid var(--accent);
             transition: all 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
+            cursor: pointer;
         }
-        
+
         .compressed-block:hover {
-            transform: translateX(4px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            transform: translateX(8px) scale(1.02);
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.15);
+            background: #ffffff;
+            border-left-width: 4px;
         }
-        
+
         .block-label {
             font-size: 12px;
             font-weight: 600;
@@ -469,19 +638,19 @@
             color: var(--accent);
             margin-bottom: 12px;
         }
-        
+
         .block-content {
             font-size: 15px;
             line-height: 1.6;
             color: var(--text-primary);
         }
-        
+
         /* Interactive Feature Showcase */
         .trust-section {
             padding: 120px 22px;
             background: var(--bg);
         }
-        
+
         .feature-showcase {
             max-width: 1400px;
             margin: 80px auto 0;
@@ -489,7 +658,7 @@
             flex-direction: column;
             gap: 120px;
         }
-        
+
         .feature-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -499,26 +668,26 @@
             transform: translateY(40px);
             transition: all 0.8s cubic-bezier(0.28, 0.11, 0.32, 1);
         }
-        
+
         .feature-row.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         .feature-row.reverse {
             direction: rtl;
         }
-        
-        .feature-row.reverse > * {
+
+        .feature-row.reverse>* {
             direction: ltr;
         }
-        
+
         .feature-content {
             display: flex;
             flex-direction: column;
             gap: 24px;
         }
-        
+
         .feature-number {
             width: 48px;
             height: 48px;
@@ -531,23 +700,23 @@
             font-weight: 700;
             color: white;
         }
-        
+
         .feature-content h3 {
             font-size: 40px;
             font-weight: 700;
             letter-spacing: -0.02em;
             line-height: 1.1;
         }
-        
+
         .feature-content p {
             font-size: 19px;
             line-height: 1.6;
             color: var(--text-secondary);
         }
-        
+
         .feature-visual {
             position: relative;
-            background: var(--surface);
+            background: #fafafa;
             border: 2px solid rgba(0, 0, 0, 0.06);
             border-radius: 12px;
             padding: 48px;
@@ -556,44 +725,72 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.28, 0.11, 0.32, 1);
+            cursor: pointer;
         }
-        
+
         .feature-visual:hover {
-            border-color: rgba(37, 99, 235, 0.2);
-            box-shadow: 0 20px 60px rgba(30, 64, 175, 0.08);
+            border-color: rgba(16, 185, 129, 0.3);
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.12);
+            transform: scale(1.02);
+            background: #ffffff;
         }
-        
+
         /* Animated scanning effect */
         .scan-animation {
             position: relative;
             width: 100%;
             height: 100%;
         }
-        
+
         .scan-lines {
             display: flex;
             flex-direction: column;
             gap: 12px;
             opacity: 0.6;
         }
-        
+
         .scan-line {
             height: 8px;
             background: linear-gradient(90deg, transparent, var(--accent), transparent);
             border-radius: 4px;
             animation: scan 2s ease-in-out infinite;
         }
-        
-        .scan-line:nth-child(2) { animation-delay: 0.2s; width: 80%; }
-        .scan-line:nth-child(3) { animation-delay: 0.4s; width: 60%; }
-        .scan-line:nth-child(4) { animation-delay: 0.6s; width: 90%; }
-        .scan-line:nth-child(5) { animation-delay: 0.8s; width: 70%; }
-        
-        @keyframes scan {
-            0%, 100% { opacity: 0.2; transform: translateX(-10px); }
-            50% { opacity: 1; transform: translateX(10px); }
+
+        .scan-line:nth-child(2) {
+            animation-delay: 0.2s;
+            width: 80%;
         }
-        
+
+        .scan-line:nth-child(3) {
+            animation-delay: 0.4s;
+            width: 60%;
+        }
+
+        .scan-line:nth-child(4) {
+            animation-delay: 0.6s;
+            width: 90%;
+        }
+
+        .scan-line:nth-child(5) {
+            animation-delay: 0.8s;
+            width: 70%;
+        }
+
+        @keyframes scan {
+
+            0%,
+            100% {
+                opacity: 0.2;
+                transform: translateX(-10px);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateX(10px);
+            }
+        }
+
         .scan-badge {
             position: absolute;
             top: 24px;
@@ -607,7 +804,7 @@
             color: var(--accent);
             animation: pulse 2s ease-in-out infinite;
         }
-        
+
         /* Extraction visualization */
         .extraction-visual {
             display: flex;
@@ -615,7 +812,7 @@
             gap: 16px;
             width: 100%;
         }
-        
+
         .data-flow {
             display: flex;
             align-items: center;
@@ -628,19 +825,30 @@
             opacity: 0;
             animation: flowIn 1s ease forwards;
         }
-        
-        .data-flow:nth-child(1) { animation-delay: 0.2s; }
-        .data-flow:nth-child(2) { animation-delay: 0.4s; }
-        .data-flow:nth-child(3) { animation-delay: 0.6s; }
-        .data-flow:nth-child(4) { animation-delay: 0.8s; }
-        
+
+        .data-flow:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .data-flow:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .data-flow:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .data-flow:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
         @keyframes flowIn {
             to {
                 opacity: 1;
                 transform: translateX(0);
             }
         }
-        
+
         .data-icon {
             width: 32px;
             height: 32px;
@@ -654,7 +862,7 @@
             font-weight: 700;
             flex-shrink: 0;
         }
-        
+
         .data-label {
             font-size: 13px;
             font-weight: 600;
@@ -662,7 +870,7 @@
             text-transform: uppercase;
             letter-spacing: 0.08em;
         }
-        
+
         /* Structured output visualization */
         .output-blocks {
             display: grid;
@@ -670,22 +878,23 @@
             gap: 16px;
             width: 100%;
         }
-        
+
         .output-block {
             padding: 24px;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.03), rgba(124, 58, 237, 0.03));
-            border: 2px solid rgba(37, 99, 235, 0.1);
+            background: #fafafa;
+            border: 2px solid rgba(16, 185, 129, 0.15);
             border-radius: 8px;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
             cursor: pointer;
         }
-        
+
         .output-block:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px) scale(1.03);
             border-color: var(--accent);
-            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+            box-shadow: 0 12px 32px rgba(16, 185, 129, 0.2);
+            background: #ffffff;
         }
-        
+
         .output-block-title {
             font-size: 12px;
             font-weight: 700;
@@ -694,19 +903,19 @@
             letter-spacing: 0.08em;
             margin-bottom: 8px;
         }
-        
+
         .output-block-content {
             font-size: 13px;
             color: var(--text-secondary);
             line-height: 1.5;
         }
-        
+
         /* Pricing with FOMO */
         .pricing-section {
             padding: 120px 22px;
             background: var(--surface);
         }
-        
+
         .pricing-cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -714,28 +923,34 @@
             max-width: 1200px;
             margin: 80px auto 0;
         }
-        
+
         .pricing-card {
             padding: 48px;
-            background: var(--bg);
+            background: #fafafa;
             border: 2px solid rgba(0, 0, 0, 0.06);
             border-radius: 8px;
             transition: all 0.4s cubic-bezier(0.28, 0.11, 0.32, 1);
             position: relative;
+            cursor: pointer;
         }
-        
+
         .pricing-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.15);
             border-color: var(--accent);
+            background: #ffffff;
         }
-        
+
         .pricing-card.featured {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.03), rgba(124, 58, 237, 0.03));
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(6, 182, 212, 0.05));
             border-color: var(--accent);
             border-width: 2px;
         }
-        
+
+        .pricing-card.featured:hover {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(6, 182, 212, 0.08));
+        }
+
         .featured-badge {
             position: absolute;
             top: -12px;
@@ -750,7 +965,7 @@
             text-transform: uppercase;
             letter-spacing: 0.08em;
         }
-        
+
         .plan-name {
             font-size: 15px;
             font-weight: 600;
@@ -759,7 +974,7 @@
             text-transform: uppercase;
             letter-spacing: 0.06em;
         }
-        
+
         .plan-price {
             font-size: 48px;
             font-weight: 700;
@@ -767,25 +982,25 @@
             line-height: 1;
             margin-bottom: 8px;
         }
-        
+
         .plan-price span {
             font-size: 19px;
             color: var(--text-secondary);
             font-weight: 500;
         }
-        
+
         .plan-description {
             font-size: 15px;
             color: var(--text-secondary);
             margin-bottom: 32px;
             line-height: 1.5;
         }
-        
+
         .plan-features {
             list-style: none;
             margin-bottom: 32px;
         }
-        
+
         .plan-features li {
             padding: 12px 0;
             font-size: 15px;
@@ -795,7 +1010,7 @@
             gap: 12px;
             line-height: 1.5;
         }
-        
+
         .plan-features li::before {
             content: '✓';
             color: var(--success);
@@ -803,7 +1018,7 @@
             font-size: 18px;
             flex-shrink: 0;
         }
-        
+
         .plan-btn {
             width: 100%;
             padding: 16px 24px;
@@ -817,24 +1032,24 @@
             transition: all 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
             font-family: inherit;
         }
-        
+
         .plan-btn:hover {
             background: var(--accent-hover);
             transform: translateY(-2px);
         }
-        
+
         .pricing-card:not(.featured) .plan-btn {
             background: transparent;
             border: 2px solid rgba(0, 0, 0, 0.12);
             color: var(--text-primary);
         }
-        
+
         .pricing-card:not(.featured) .plan-btn:hover {
             background: rgba(37, 99, 235, 0.06);
             border-color: var(--accent);
             transform: translateY(-2px);
         }
-        
+
         /* Waitlist Section */
         .waitlist-section {
             padding: 120px 22px;
@@ -842,7 +1057,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .waitlist-container {
             max-width: 720px;
             margin: 0 auto;
@@ -850,7 +1065,7 @@
             position: relative;
             z-index: 2;
         }
-        
+
         .waitlist-badge {
             display: inline-flex;
             align-items: center;
@@ -864,7 +1079,7 @@
             color: var(--accent);
             margin-bottom: 24px;
         }
-        
+
         .waitlist-section h2 {
             font-size: clamp(32px, 5vw, 56px);
             font-weight: 700;
@@ -872,21 +1087,21 @@
             line-height: 1.08;
             margin-bottom: 20px;
         }
-        
+
         .waitlist-section p {
             font-size: 21px;
             line-height: 1.47;
             color: var(--text-secondary);
             margin-bottom: 48px;
         }
-        
+
         .waitlist-form {
             display: flex;
             gap: 12px;
             max-width: 560px;
             margin: 0 auto 24px;
         }
-        
+
         .waitlist-input {
             flex: 1;
             padding: 18px 24px;
@@ -897,13 +1112,13 @@
             font-family: inherit;
             transition: all 0.3s ease;
         }
-        
+
         .waitlist-input:focus {
             outline: none;
             border-color: var(--accent);
             box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
         }
-        
+
         .waitlist-btn {
             padding: 18px 40px;
             background: var(--accent);
@@ -917,25 +1132,93 @@
             font-family: inherit;
             white-space: nowrap;
         }
-        
+
         .waitlist-btn:hover {
             background: var(--accent-hover);
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
         }
-        
+
         .waitlist-note {
             font-size: 13px;
             color: var(--text-secondary);
         }
-        
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 120px 22px;
+            background: var(--bg);
+            position: relative;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 8px;
+            background: var(--surface);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(16, 185, 129, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .faq-question {
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 17px;
+            color: var(--text-primary);
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            color: var(--accent);
+        }
+
+        .faq-answer {
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0, 1, 0, 1);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            opacity: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            padding-bottom: 24px;
+            max-height: 200px;
+            opacity: 1;
+            transition: all 0.3s cubic-bezier(1, 0, 1, 0);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
         /* Footer */
         footer {
             padding: 48px 22px;
             background: var(--surface);
             border-top: 1px solid rgba(0, 0, 0, 0.06);
         }
-        
+
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -943,7 +1226,7 @@
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 64px;
         }
-        
+
         .footer-col h4 {
             font-size: 12px;
             font-weight: 600;
@@ -952,25 +1235,25 @@
             color: var(--text-secondary);
             margin-bottom: 16px;
         }
-        
+
         .footer-links {
             list-style: none;
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
-        
+
         .footer-links a {
             font-size: 14px;
             color: var(--text-primary);
             text-decoration: none;
             transition: opacity 0.2s ease;
         }
-        
+
         .footer-links a:hover {
             opacity: 0.7;
         }
-        
+
         .footer-bottom {
             max-width: 1200px;
             margin: 48px auto 0;
@@ -980,63 +1263,63 @@
             font-size: 12px;
             color: var(--text-secondary);
         }
-        
+
         /* Responsive */
         @media (max-width: 1024px) {
             .comparison-content {
                 grid-template-columns: 1fr;
             }
-            
+
             .feature-row,
             .feature-row.reverse {
                 grid-template-columns: 1fr;
                 direction: ltr;
             }
-            
+
             .output-blocks {
                 grid-template-columns: 1fr;
             }
-            
+
             .pricing-cards {
                 grid-template-columns: 1fr;
             }
-            
+
             .footer-content {
                 grid-template-columns: 1fr 1fr;
             }
         }
-        
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
-            
+
             .hero {
                 padding-top: 60px;
             }
-            
+
             .hero-ctas {
                 flex-direction: column;
                 width: 100%;
             }
-            
+
             .btn-primary,
             .btn-secondary {
                 width: 100%;
             }
-            
+
             .comparison-side {
                 padding: 24px;
             }
-            
+
             .waitlist-form {
                 flex-direction: column;
             }
-            
+
             .waitlist-btn {
                 width: 100%;
             }
-            
+
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 32px;
@@ -1044,19 +1327,23 @@
         }
     </style>
 </head>
+
 <body>
     <nav id="nav">
         <div class="nav-content">
             <div class="logo">GPTCompress</div>
             <div class="nav-links">
-                <a href="#problem" class="nav-link">Problem</a>
+                <a href="#demo" class="nav-link">Problem</a>
                 <a href="#solution" class="nav-link">Solution</a>
                 <a href="#pricing" class="nav-link">Pricing</a>
-                <button class="nav-cta" onclick="document.getElementById('waitlist').scrollIntoView({behavior: 'smooth'})">Join Waitlist</button>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <button class="nav-cta"
+                    onclick="document.getElementById('waitlist').scrollIntoView({behavior: 'smooth'})">Join
+                    Waitlist</button>
             </div>
         </div>
     </nav>
-    
+
     <section class="hero">
         <div class="hero-content">
             <div class="alert-badge">
@@ -1069,32 +1356,50 @@
                 Your decisions are disappearing.
             </h1>
             <p class="hero-subtitle">
-                After message 50, <strong>ChatGPT starts forgetting.</strong> Critical decisions from your conversation history? Gone. Project constraints you specified 80 messages ago? Erased. You're repeating yourself. Your AI is confused. Your time is wasted.
+                After message 50, <strong>ChatGPT starts forgetting.</strong> Critical decisions from your conversation?
+                Gone. Important details you specified 80 messages ago? Erased. Whether you're building software, writing
+                content, or planning strategy, you're repeating yourself. Your AI is confused. Your time is wasted.
             </p>
-            
+
             <div class="hero-ctas">
-                <button class="btn-primary" onclick="document.getElementById('waitlist').scrollIntoView({behavior: 'smooth'})">Stop Losing Context Now</button>
-                <button class="btn-secondary" onclick="document.getElementById('demo').scrollIntoView({behavior: 'smooth'})">See The Problem</button>
+                <button class="btn-primary"
+                    onclick="document.getElementById('waitlist').scrollIntoView({behavior: 'smooth'})">Stop Losing
+                    Context Now</button>
+                <button class="btn-secondary"
+                    onclick="document.getElementById('demo').scrollIntoView({behavior: 'smooth'})">See The
+                    Problem</button>
+            </div>
+
+            <div class="hero-visual-container">
+                <div class="hero-stack">
+                    <div class="compress-arrow">↓</div>
+                    <div class="stack-layer">Your Project Goals</div>
+                    <div class="stack-layer"></div>
+                    <div class="stack-layer"></div>
+                    <div class="stack-layer"></div>
+                </div>
             </div>
         </div>
     </section>
-    
+
     <section class="demo-section" id="demo">
         <div class="demo-container">
             <div class="section-header">
                 <div class="section-label">The Painful Reality</div>
                 <h2 class="section-title">This is happening to you<br>right now.</h2>
                 <p class="section-subtitle">
-                    Your 127-message conversation about building your app? ChatGPT can only see the last ~50. When you ask it to summarize, it's working with <strong>incomplete information.</strong> Critical decisions are invisible.
+                    Your 127-message conversation about your project? ChatGPT can only see the last ~50. When you
+                    ask it to summarize, it's working with <strong>incomplete information.</strong> Critical decisions
+                    are invisible.
                 </p>
             </div>
-            
+
             <div class="comparison-wrapper">
                 <div class="comparison-toggle">
                     <button class="toggle-btn active" data-view="problem">What ChatGPT Sees</button>
                     <button class="toggle-btn" data-view="solution">What GPTCompress Sees</button>
                 </div>
-                
+
                 <div class="comparison-content">
                     <div class="comparison-side" id="problem-view">
                         <div class="side-header">
@@ -1105,7 +1410,7 @@
                             <!-- Messages populate via JS -->
                         </div>
                     </div>
-                    
+
                     <div class="comparison-side" id="solution-view">
                         <div class="side-header">
                             <div class="side-title">GPTCompress Full Scan</div>
@@ -1114,23 +1419,30 @@
                         <div class="compressed-blocks">
                             <div class="compressed-block">
                                 <div class="block-label">Goal</div>
-                                <div class="block-content">Build iOS-first mobile app with offline functionality, user authentication, and push notifications targeting 10K initial users</div>
+                                <div class="block-content">Write comprehensive content marketing strategy guide
+                                    targeting small business owners; focus on SEO and social media</div>
                             </div>
                             <div class="compressed-block">
                                 <div class="block-label">Decisions Made</div>
-                                <div class="block-content">Swift + SwiftUI for native performance • Firebase for backend infrastructure • $5,000 budget allocated • 3-month development timeline • TestFlight for beta distribution</div>
+                                <div class="block-content">Target length: 5,000 words • Include 10 case studies • Focus
+                                    on actionable tactics • LinkedIn and Twitter primary platforms • Launch Q1 2026
+                                </div>
                             </div>
                             <div class="compressed-block">
                                 <div class="block-label">Open Questions</div>
-                                <div class="block-content">Push notification implementation approach • User onboarding flow design • App Store optimization strategy • Monetization model selection</div>
+                                <div class="block-content">Pricing strategy for premium version • Which design agency to
+                                    partner with • SEO keyword research depth • Interview format for case studies</div>
                             </div>
                             <div class="compressed-block">
                                 <div class="block-label">Constraints</div>
-                                <div class="block-content">Must work offline • iOS 15+ compatibility required • No third-party analytics initially • GDPR compliance mandatory</div>
+                                <div class="block-content">Must complete by March 1st • $2,500 budget for contractors •
+                                    Target B2B audience only • Avoid technical jargon</div>
                             </div>
                             <div class="compressed-block">
                                 <div class="block-label">Key Facts</div>
-                                <div class="block-content">Core Data selected for local storage • OAuth 2.0 for authentication • App Store guidelines reviewed and approved • Target launch Q2 2026</div>
+                                <div class="block-content">Main competitor is HubSpot Academy • Target 50K downloads
+                                    first month • Premium tier at $99 • Email sequence automated via ConvertKit
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1138,24 +1450,28 @@
             </div>
         </div>
     </section>
-    
+
     <section class="trust-section" id="solution">
         <div class="demo-container">
             <div class="section-header">
                 <div class="section-label">The Solution</div>
-                <h2 class="section-title">We scan your entire<br>conversation history.</h2>
+                <h2 class="section-title">Your entire conversation,<br>analyzed securely.</h2>
                 <p class="section-subtitle">
-                    GPTCompress reads <strong>every single message</strong> — not just what ChatGPT can remember. Your complete context, structured into 6 actionable categories.
+                    Our <strong>powerful algorithm</strong> processes your full conversation history in real-time,
+                    extracting critical insights while ensuring <strong>you stay in control.</strong> Nothing is stored
+                    on our servers.
                 </p>
             </div>
-            
+
             <div class="feature-showcase">
                 <!-- Feature 1: Complete History Scan -->
                 <div class="feature-row">
                     <div class="feature-content">
                         <div class="feature-number">01</div>
-                        <h3>Complete History Scan</h3>
-                        <p>We access your full conversation through ChatGPT's API. Every message. Every decision. Every constraint you specified 80 messages ago. Nothing truncated. Nothing lost.</p>
+                        <h3>Complete Analysis</h3>
+                        <p>Your full conversation is analyzed in real-time using secure processing. Every message, every
+                            decision, every constraint from 80 messages ago, all accessible and organized. <strong>Zero
+                                storage, 100% privacy.</strong></p>
                     </div>
                     <div class="feature-visual">
                         <div class="scan-animation">
@@ -1170,13 +1486,16 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Feature 2: Intelligent Extraction -->
                 <div class="feature-row reverse">
                     <div class="feature-content">
                         <div class="feature-number">02</div>
-                        <h3>Intelligent Extraction</h3>
-                        <p>Powered by GPT-4o-mini, our engine identifies what matters. Goals, decisions, open questions, constraints, and key facts automatically extracted and categorized.</p>
+                        <h3>Smart Categorization</h3>
+                        <p>Advanced AI identifies what matters most: goals, decisions, open questions, constraints, and
+                            key facts. All automatically categorized and structured for instant clarity.
+                            <strong>Processed in real-time, never stored.</strong>
+                        </p>
                     </div>
                     <div class="feature-visual">
                         <div class="extraction-visual">
@@ -1199,13 +1518,15 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Feature 3: Structured Output -->
                 <div class="feature-row">
                     <div class="feature-content">
                         <div class="feature-number">03</div>
-                        <h3>Structured Output</h3>
-                        <p>Clean, scannable summaries organized into 6 categories. No more scrolling through 100+ messages. Find exactly what you need in seconds.</p>
+                        <h3>Instant Summaries</h3>
+                        <p>Clean, scannable summaries organized into 6 categories. Your data stays with you - download
+                            as Markdown, PDF, or Notion. No more scrolling through 100+ messages. <strong>Your insights,
+                                your files.</strong></p>
                     </div>
                     <div class="feature-visual">
                         <div class="output-blocks">
@@ -1239,17 +1560,88 @@
             </div>
         </div>
     </section>
-    
+
+    <section class="trust-section" style="background: #fafafa;">
+        <div class="demo-container">
+            <div class="section-header">
+                <div class="section-label">For Every Conversation</div>
+                <h2 class="section-title">Works for whatever<br>you're working on.</h2>
+                <p class="section-subtitle">
+                    Whether you're coding, writing, researching, or planning - GPTCompress preserves your context so you
+                    can pick up exactly where you left off.
+                </p>
+            </div>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1200px; margin: 80px auto 0;">
+                <div style="padding: 32px; background: white; border-radius: 12px; border: 2px solid rgba(0,0,0,0.06); transition: all 0.3s ease; cursor: pointer;"
+                    onmouseover="this.style.borderColor='rgba(16,185,129,0.3)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.08)'"
+                    onmouseout="this.style.borderColor='rgba(0,0,0,0.06)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <h3 style="font-size: 19px; font-weight: 600; margin-bottom: 8px; color: var(--accent);">Software
+                        Development</h3>
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6;">Track architecture
+                        decisions, tech stack choices, and implementation details across long coding sessions.</p>
+                </div>
+
+                <div style="padding: 32px; background: white; border-radius: 12px; border: 2px solid rgba(0,0,0,0.06); transition: all 0.3s ease; cursor: pointer;"
+                    onmouseover="this.style.borderColor='rgba(16,185,129,0.3)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.08)'"
+                    onmouseout="this.style.borderColor='rgba(0,0,0,0.06)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <h3 style="font-size: 19px; font-weight: 600; margin-bottom: 8px; color: var(--accent);">Content
+                        Creation</h3>
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6;">Maintain tone, style
+                        guidelines, and narrative threads throughout blog posts, books, or marketing campaigns.</p>
+                </div>
+
+                <div style="padding: 32px; background: white; border-radius: 12px; border: 2px solid rgba(0,0,0,0.06); transition: all 0.3s ease; cursor: pointer;"
+                    onmouseover="this.style.borderColor='rgba(16,185,129,0.3)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.08)'"
+                    onmouseout="this.style.borderColor='rgba(0,0,0,0.06)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <h3 style="font-size: 19px; font-weight: 600; margin-bottom: 8px; color: var(--accent);">Research &
+                        Learning</h3>
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6;">Organize research
+                        findings, key concepts, and learning progress from deep-dive educational conversations.</p>
+                </div>
+
+                <div style="padding: 32px; background: white; border-radius: 12px; border: 2px solid rgba(0,0,0,0.06); transition: all 0.3s ease; cursor: pointer;"
+                    onmouseover="this.style.borderColor='rgba(16,185,129,0.3)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.08)'"
+                    onmouseout="this.style.borderColor='rgba(0,0,0,0.06)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <h3 style="font-size: 19px; font-weight: 600; margin-bottom: 8px; color: var(--accent);">Business
+                        Strategy</h3>
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6;">Capture market insights,
+                        competitive analysis, and strategic decisions from planning conversations.</p>
+                </div>
+
+                <div style="padding: 32px; background: white; border-radius: 12px; border: 2px solid rgba(0,0,0,0.06); transition: all 0.3s ease; cursor: pointer;"
+                    onmouseover="this.style.borderColor='rgba(16,185,129,0.3)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.08)'"
+                    onmouseout="this.style.borderColor='rgba(0,0,0,0.06)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <h3 style="font-size: 19px; font-weight: 600; margin-bottom: 8px; color: var(--accent);">Creative
+                        Projects</h3>
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6;">Preserve character
+                        development, plot points, and worldbuilding details for writing and game design.</p>
+                </div>
+
+                <div style="padding: 32px; background: white; border-radius: 12px; border: 2px solid rgba(0,0,0,0.06); transition: all 0.3s ease; cursor: pointer;"
+                    onmouseover="this.style.borderColor='rgba(16,185,129,0.3)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.08)'"
+                    onmouseout="this.style.borderColor='rgba(0,0,0,0.06)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <h3 style="font-size: 19px; font-weight: 600; margin-bottom: 8px; color: var(--accent);">Data
+                        Analysis</h3>
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6;">Keep track of
+                        methodology choices, statistical findings, and modeling decisions across analysis sessions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="pricing-section" id="pricing">
         <div class="demo-container">
             <div class="section-header">
                 <div class="section-label">Pricing</div>
                 <h2 class="section-title">Stop losing context.<br>Start building faster.</h2>
                 <p class="section-subtitle">
-                    Every minute you spend scrolling through old messages is a minute you're not building. Choose the plan that matches your workflow.
+                    Every minute you spend scrolling through old messages is a minute you're not building. Choose the
+                    plan that matches your workflow.
                 </p>
             </div>
-            
+
             <div class="pricing-cards">
                 <div class="pricing-card">
                     <div class="plan-name">Free</div>
@@ -1262,9 +1654,11 @@
                         <li>ChatGPT integration</li>
                         <li>24-hour response support</li>
                     </ul>
-                    <button class="plan-btn">Start Free</button>
+                    <button class="plan-btn"
+                        onclick="document.getElementById('waitlist').scrollIntoView({behavior: 'smooth'})">Start
+                        Free</button>
                 </div>
-                
+
                 <div class="pricing-card featured">
                     <div class="featured-badge">Most Popular</div>
                     <div class="plan-name">Pro</div>
@@ -1278,9 +1672,11 @@
                         <li>1-hour priority support</li>
                         <li>Export to Notion, Markdown, PDF</li>
                     </ul>
-                    <button class="plan-btn">Go Pro Now</button>
+                    <button class="plan-btn"
+                        onclick="document.getElementById('waitlist').scrollIntoView({behavior: 'smooth'})">Go Pro
+                        Now</button>
                 </div>
-                
+
                 <div class="pricing-card">
                     <div class="plan-name">Credits</div>
                     <div class="plan-price">$4.99<span>+</span></div>
@@ -1292,56 +1688,108 @@
                         <li>Perfect for occasional use</li>
                         <li>24-hour response support</li>
                     </ul>
-                    <button class="plan-btn">Buy Credits</button>
+                    <button class="plan-btn"
+                        onclick="document.getElementById('waitlist').scrollIntoView({behavior: 'smooth'})">Buy
+                        Credits</button>
                 </div>
             </div>
         </div>
     </section>
-    
+
+    <section class="faq-section" id="faq">
+        <div class="faq-container">
+            <div class="section-header" style="margin-bottom: 48px;">
+                <h2 class="section-title" style="font-size: 40px;">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Does this work with the free version of ChatGPT?
+                    <div class="faq-icon">▼</div>
+                </div>
+                <div class="faq-answer">
+                    Yes! GPTCompress works with both free and Plus versions of ChatGPT. We connect via the standard API
+                    interface to ensure compatibility.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Is my data secure?
+                    <div class="faq-icon">▼</div>
+                </div>
+                <div class="faq-answer">
+                    Absolutely. We do not store your conversation history. We only process it in real-time to extract
+                    the summary, and then we seek to discard the raw data immediately.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How accurate are the summaries?
+                    <div class="faq-icon">▼</div>
+                </div>
+                <div class="faq-answer">
+                    We use the most advanced models (GPT-4o) for the summarization process, ensuring that even subtle
+                    details and decisions are captured accurately.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I export the summaries?
+                    <div class="faq-icon">▼</div>
+                </div>
+                <div class="faq-answer">
+                    Yes, Pro users can export summaries to Markdown, PDF, or directly to Notion.
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="waitlist-section" id="waitlist">
         <div class="waitlist-container">
             <div class="waitlist-badge">Limited Early Access</div>
             <h2>Stop losing context in<br>every conversation.</h2>
             <p>Get early access to GPTCompress when we launch.</p>
-            
-            <form class="waitlist-form" id="waitlistForm">
-                <input type="email" class="waitlist-input" placeholder="your@email.com" required>
+
+            <form class="waitlist-form" id="waitlistForm"
+                action="https://docs.google.com/forms/d/e/1FAIpQLSfmRTAfLbmfRU39q_bzqXN3zKdqPSD8ecu7nNXZfZFUxnVT5g/formResponse"
+                method="POST" target="hidden_iframe">
+                <input type="email" name="entry.394320247" class="waitlist-input" placeholder="your@email.com" required>
                 <button type="submit" class="waitlist-btn">Join Waitlist</button>
             </form>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
             <p class="waitlist-note">No spam. Early access notification only. Unsubscribe anytime.</p>
         </div>
     </section>
-    
+
     <footer>
         <div class="footer-content">
             <div class="footer-col">
                 <h4>GPTCompress</h4>
                 <p style="font-size: 14px; color: var(--text-secondary); margin-top: 12px; line-height: 1.6;">
-                    Stop losing context in ChatGPT. Compress your full conversation history into structured, actionable summaries.
+                    Stop losing context in ChatGPT. Compress your full conversation history into structured, actionable
+                    summaries.
                 </p>
-            </div>
-            <div class="footer-col">
-                <h4>Product</h4>
-                <ul class="footer-links">
-                    <li><a href="#demo">How It Works</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#waitlist">Join Waitlist</a></li>
-                </ul>
             </div>
             <div class="footer-col">
                 <h4>Company</h4>
                 <ul class="footer-links">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><span
+                            style="font-size: 14px; color: var(--text-secondary); display: block; margin-bottom: 8px;">GPTCompress</span>
+                    </li>
+                    <li><span style="font-size: 12px; color: #94a3b8; display: block; margin-bottom: 12px;">Indie
+                            Startup</span></li>
+                    <li><a href="mailto:info@gptcompress.com">info@gptcompress.com</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Legal</h4>
                 <ul class="footer-links">
-                    <li><a href="#">Privacy</a></li>
-                    <li><a href="#">Terms</a></li>
-                    <li><a href="#">Security</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="security.html">Security</a></li>
                 </ul>
             </div>
         </div>
@@ -1349,7 +1797,7 @@
             <p>© 2026 GPTCompress. All rights reserved.</p>
         </div>
     </footer>
-    
+
     <script>
         // Navbar scroll effect
         const nav = document.getElementById('nav');
@@ -1360,7 +1808,7 @@
                 nav.classList.remove('scrolled');
             }
         });
-        
+
         // Message stream animation
         const messages = [
             "How do I build a mobile app for iOS?",
@@ -1374,10 +1822,10 @@
             "How do I handle authentication?",
             "Target is 10,000 initial users"
         ];
-        
+
         const messageStream = document.getElementById('messageStream');
         let messageIndex = 0;
-        
+
         function addMessage() {
             if (messageIndex < messages.length) {
                 const msg = document.createElement('div');
@@ -1395,7 +1843,7 @@
                 messageStream.appendChild(truncated);
             }
         }
-        
+
         // Start message animation when section is visible
         const demoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1404,21 +1852,21 @@
                 }
             });
         }, { threshold: 0.3 });
-        
+
         demoObserver.observe(document.getElementById('demo'));
-        
+
         // Comparison toggle
         const toggleBtns = document.querySelectorAll('.toggle-btn');
         const problemView = document.getElementById('problem-view');
         const solutionView = document.getElementById('solution-view');
-        
+
         toggleBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const view = btn.dataset.view;
-                
+
                 toggleBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                
+
                 if (view === 'problem') {
                     problemView.style.opacity = '1';
                     problemView.style.transform = 'translateY(0)';
@@ -1432,7 +1880,7 @@
                 }
             });
         });
-        
+
         // Feature showcase scroll animations
         const featureObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -1441,19 +1889,33 @@
                 }
             });
         }, { threshold: 0.2 });
-        
+
         document.querySelectorAll('.feature-row').forEach(row => {
             featureObserver.observe(row);
         });
-        
-        // Waitlist form
+
+        // Waitlist form - Google Forms integration
         document.getElementById('waitlistForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            const email = e.target.querySelector('input').value;
-            alert(`Thanks for joining! We'll notify ${email} when early access opens.`);
-            e.target.reset();
+            const email = e.target.querySelector('input[type="email"]').value;
+
+            // Submit to Google Forms
+            const form = e.target;
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            }).then(() => {
+                alert(`Thanks for joining! We'll notify ${email} when early access opens.`);
+                form.reset();
+            }).catch(() => {
+                alert(`Thanks for joining! We'll notify ${email} when early access opens.`);
+                form.reset();
+            });
         });
-        
+
         // Smooth scroll for all internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1464,6 +1926,23 @@
                 }
             });
         });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all others
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+                // Toggle current
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
+
 </html>
