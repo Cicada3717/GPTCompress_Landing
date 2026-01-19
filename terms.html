@@ -5,104 +5,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - GPTCompress</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
     <style>
-        :root {
-            --text-primary: #022c22;
-            --text-secondary: #64748b;
-            --accent: #10b981;
-            --bg: #ffffff;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 80px 24px;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            font-size: 40px;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
+            color: #10a37f;
+            margin-bottom: 10px;
+            font-size: 32px;
         }
 
         h2 {
+            color: #10a37f;
+            margin-top: 30px;
+            margin-bottom: 15px;
             font-size: 24px;
-            margin-top: 48px;
-            margin-bottom: 16px;
         }
 
         p,
         li {
-            font-size: 16px;
-            color: var(--text-secondary);
-            margin-bottom: 16px;
+            margin-bottom: 10px;
+            color: #555;
         }
 
-        .last-updated {
-            font-size: 14px;
-            color: #94a3b8;
-            margin-bottom: 48px;
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
         }
 
-        .back-link {
-            display: inline-block;
-            margin-bottom: 48px;
-            color: var(--accent);
+        strong {
+            color: #333;
+        }
+
+        a {
+            color: #10a37f;
             text-decoration: none;
-            font-weight: 500;
         }
 
-        .back-link:hover {
+        a:hover {
             text-decoration: underline;
+        }
+
+        .metadata {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 30px 0;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-style: italic;
+            color: #666;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <a href="index.html" class="back-link">← Back to Home</a>
+        <h1>Terms of Service - GPTCompress</h1>
+        <p class="metadata"><strong>Last Updated:</strong> January 19, 2026</p>
 
-        <h1>Terms of Service</h1>
-        <div class="last-updated">Last Updated: January 19, 2026</div>
+        <h2>1. Service Description</h2>
+        <p>GPTCompress is a Model Context Protocol (MCP) tool that compresses ChatGPT conversations into structured
+            summaries. The service is provided "as is" for use within ChatGPT.</p>
 
-        <p>By accessing or using GPTCompress, you agree to be bound by these Terms of Service.</p>
+        <h2>2. Acceptance of Terms</h2>
+        <p>By using GPTCompress, you agree to these Terms of Service. If you do not agree, do not use the service.</p>
 
-        <h2>1. Description of Service</h2>
-        <p>GPTCompress is a tool designed to summarize and optimize chat conversation history. We provide this service
-            "as is" and make no guarantees regarding the accuracy or completeness of any summary generated.</p>
+        <h2>3. User Responsibilities</h2>
+        <p>You agree to:</p>
+        <ul>
+            <li>Use the service only for lawful purposes</li>
+            <li>Not submit content that violates OpenAI's usage policies</li>
+            <li>Not attempt to abuse, exploit, or reverse-engineer the service</li>
+            <li>Understand that compressed summaries are AI-generated and may contain errors</li>
+        </ul>
 
-        <h2>2. User Responsibilities</h2>
-        <p>You are responsible for maintaining the confidentiality of your account information. You agree not to use the
-            service for any illegal or unauthorized purpose.</p>
+        <h2>4. Service Availability</h2>
+        <ul>
+            <li>We strive for high availability but do not guarantee uninterrupted service</li>
+            <li>The service may be modified, suspended, or discontinued at any time</li>
+            <li>No compensation will be provided for downtime</li>
+        </ul>
 
-        <h2>3. Intellectual Property</h2>
-        <p>You retain all rights to the text and data you submit to GPTCompress. We claim no ownership over your
-            conversation history or the summaries generated from it.</p>
+        <h2>5. Intellectual Property</h2>
+        <ul>
+            <li>You retain all rights to your conversation content</li>
+            <li>GPTCompress and its code are owned by the developer</li>
+            <li>The compressed output is provided to you for your use</li>
+        </ul>
 
-        <h2>4. Limitation of Liability</h2>
-        <p>In no event shall GPTCompress be liable for any indirect, incidental, special, consequential or punitive
-            damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses,
-            resulting from your access to or use of or inability to access or use the service.</p>
+        <h2>6. Limitation of Liability</h2>
+        <p>GPTCompress is provided "as is" without warranties of any kind. We are not liable for:</p>
+        <ul>
+            <li>Inaccuracies in compressed summaries</li>
+            <li>Loss of data or content</li>
+            <li>Any damages arising from use of the service</li>
+        </ul>
 
-        <h2>5. Changes to Terms</h2>
-        <p>We verify the right to modify or replace these Terms at any time. Your continued use of the Service following
-            the posting of any changes to these Terms constitutes acceptance of those changes.</p>
+        <h2>7. Privacy</h2>
+        <p>Your use of GPTCompress is also governed by our Privacy Policy, which describes how we handle data.</p>
 
-        <h2>6. Contact</h2>
-        <p>Questions about the Terms of Service should be sent to us at <a href="mailto:info@gptcompress.com"
-                style="color: var(--accent);">info@gptcompress.com</a>.</p>
+        <h2>8. OpenAI Terms</h2>
+        <p>Your use of ChatGPT and this tool within ChatGPT is subject to OpenAI's Terms of Use.</p>
+
+        <h2>9. Changes to Terms</h2>
+        <p>We reserve the right to modify these terms. Continued use after changes constitutes acceptance.</p>
+
+        <h2>10. Termination</h2>
+        <p>We may terminate or restrict access to the service at any time for any reason.</p>
+
+        <h2>11. Governing Law</h2>
+        <p>These terms are governed by the laws of the jurisdiction where the service is operated.</p>
+
+        <h2>12. Contact</h2>
+        <p>For questions about these terms: info@gptcompress.com<br>
+            GitHub: <a href="https://github.com/Cicada3717/gptcompress"
+                target="_blank">https://github.com/Cicada3717/gptcompress</a></p>
+
+        <hr>
+
+        <div class="footer">
+            By using GPTCompress, you acknowledge that you have read, understood, and agree to be bound by these Terms
+            of Service.
+        </div>
     </div>
 </body>
 
