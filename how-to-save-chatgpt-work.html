@@ -366,8 +366,11 @@
     <div class="article-container">
 
         <p>Last week, I lost three months of work in a single click.</p>
-        <p>Not because ChatGPT crashed. Not because of a bug. But because I trusted ChatGPT to remember everything, and when I needed to reference a critical decision from message 73, it was just... gone.</p>
-        <p>If you're using ChatGPT for anything serious—coding projects, content creation, research, strategy—you need a system to preserve your work. Because ChatGPT will forget. And when it does, you'll wish you had read this.</p>
+        <p>Not because ChatGPT crashed. Not because of a bug. But because I trusted ChatGPT to remember everything, and
+            when I needed to reference a critical decision from message 73, it was just... gone.</p>
+        <p>If you're using ChatGPT for anything serious - coding projects, content creation, research, strategy - you
+            need a system to preserve your work. Because ChatGPT will forget. And when it does, you'll wish you had read
+            this.</p>
 
         <div class="toc">
             <div class="toc-title">📖 In This Article</div>
@@ -387,7 +390,8 @@
 
         <h2 id="wake-up-call">The Wake-Up Call</h2>
         <p>Here's what happened to me:</p>
-        <p>I'd been working on a complex software architecture document for a client. Over 127 messages, ChatGPT and I had:</p>
+        <p>I'd been working on a complex software architecture document for a client. Over 127 messages, ChatGPT and I
+            had:</p>
         <ul>
             <li>Defined the entire tech stack</li>
             <li>Made critical database design decisions</li>
@@ -397,13 +401,16 @@
         </ul>
 
         <p>Then I asked ChatGPT to summarize our tech stack decisions.</p>
-        <p>It confidently gave me an answer. But something felt off. I scrolled back to message 68 where we'd chosen PostgreSQL over MongoDB, with specific reasoning about ACID compliance.</p>
+        <p>It confidently gave me an answer. But something felt off. I scrolled back to message 68 where we'd chosen
+            PostgreSQL over MongoDB, with specific reasoning about ACID compliance.</p>
         <p>ChatGPT's summary? Said we chose MongoDB.</p>
-        <p>Why? Because by message 127, ChatGPT literally couldn't see message 68 anymore. It was working from incomplete information, making up the gaps, and presenting it as fact.</p>
+        <p>Why? Because by message 127, ChatGPT literally couldn't see message 68 anymore. It was working from
+            incomplete information, making up the gaps, and presenting it as fact.</p>
         <p>Three months of architectural decisions. Compromised.</p>
 
         <h2 id="happening-now">This Is Happening to You Right Now</h2>
-        <p>If you have any conversation over ~50 messages, ChatGPT is making decisions based on incomplete information.</p>
+        <p>If you have any conversation over ~50 messages, ChatGPT is making decisions based on incomplete information.
+        </p>
         <p><strong>The brutal math:</strong></p>
         <ul>
             <li>ChatGPT's active context: ~50-80 messages (varies by plan)</li>
@@ -415,7 +422,7 @@
 
         <h2 id="why-fails">Why Your Current "System" Doesn't Work</h2>
         <p>Let me guess your workflow:</p>
-        
+
         <p><strong>Option 1: "I'll just scroll back when I need something"</strong></p>
         <ul>
             <li>Works until: You have 200+ messages</li>
@@ -447,7 +454,8 @@
         <p>None of these scale. None of these protect your work.</p>
 
         <h2>5 Methods That Actually Work (And Their Trade-offs)</h2>
-        <p>After losing that client work, I tested every method I could find. Here's what actually works, with honest pros and cons.</p>
+        <p>After losing that client work, I tested every method I could find. Here's what actually works, with honest
+            pros and cons.</p>
 
         <hr style="border: 0; border-top: 1px solid var(--border); margin: 60px 0;">
 
@@ -455,7 +463,8 @@
         <div class="technique-header">Method #1</div>
         <h2 id="method-1">Manual Copy-Paste to External Document</h2>
 
-        <p><strong>What it is:</strong> Every 20-30 messages, copy important parts to Google Docs, Notion, or a text file.</p>
+        <p><strong>What it is:</strong> Every 20-30 messages, copy important parts to Google Docs, Notion, or a text
+            file.</p>
         <p><strong>How to do it:</strong></p>
         <ol>
             <li>Review conversation every 20-30 messages</li>
@@ -523,7 +532,8 @@ Message 45: API Design
         <div class="technique-header">Method #3</div>
         <h2 id="method-3">ChatGPT's Built-in Export Feature</h2>
 
-        <p><strong>What it is:</strong> ChatGPT lets you export all your conversations as a JSON file via Settings → Data Controls.</p>
+        <p><strong>What it is:</strong> ChatGPT lets you export all your conversations as a JSON file via Settings →
+            Data Controls.</p>
 
         <div class="example-box">
             <span class="example-label">Real Structure</span>
@@ -551,7 +561,8 @@ Message 45: API Design
         <h2 id="method-4">ChatGPT Projects + Custom Instructions</h2>
 
         <p><strong>What it is:</strong> Create a Project with persistent context that carries across chats.</p>
-        <p><strong>How to do it:</strong> Create new Project in ChatGPT and add custom instructions with key context like tech stack, budget, and constraints.</p>
+        <p><strong>How to do it:</strong> Create new Project in ChatGPT and add custom instructions with key context
+            like tech stack, budget, and constraints.</p>
 
         <div class="example-box">
             <span class="example-label">Example Instructions</span>
@@ -585,23 +596,29 @@ Constraints: Must work offline, <50MB app size</pre>
 
         <h2 id="hidden-cost">The Hidden Cost of Not Saving Your Work</h2>
         <p><strong>Scenario: Building a feature over 150 messages</strong></p>
-        <p>Without system: <strong>3 hours 35 minutes wasted</strong> per feature (searching, re-explaining, debugging).</p>
+        <p>Without system: <strong>3 hours 35 minutes wasted</strong> per feature (searching, re-explaining, debugging).
+        </p>
         <p>With simple copy-paste system: <strong>30 minutes wasted</strong> maintaining notes.</p>
-        <p><strong>Savings: 3 hours per feature.</strong> That's <strong>7.5 work weeks per year</strong> you're giving up by not having a system.</p>
+        <p><strong>Savings: 3 hours per feature.</strong> That's <strong>7.5 work weeks per year</strong> you're giving
+            up by not having a system.</p>
 
         <h2 id="action-plan">Action Plan: Set Up Your System Today</h2>
         <p>Don't wait until you lose something important.</p>
 
         <ul>
-            <li><strong>If you have 10 minutes:</strong> Start using Method #1 (copy-paste). Create a doc right now.</li>
+            <li><strong>If you have 10 minutes:</strong> Start using Method #1 (copy-paste). Create a doc right now.
+            </li>
             <li><strong>If you have 30 minutes:</strong> Set up Method #4 (Projects + Custom Instructions).</li>
             <li><strong>If you have 1 hour:</strong> Implement Method #5 (Hybrid).</li>
         </ul>
 
         <h2>The System I Built (And Why)</h2>
         <p>After losing that client work, I got tired of manual copy-pasting and built something better.</p>
-        <p><strong>GPTCompress</strong> is a tool that automatically extracts key decisions, goals, and constraints from long conversations and structures them into a clean report. It solves the privacy issue (nothing stored on external servers) and works on demand.</p>
-        <p>But honestly? <strong>You don't need my tool.</strong> Method #1 works fine if you're disciplined about it.</p>
+        <p><strong>GPTCompress</strong> is a tool that automatically extracts key decisions, goals, and constraints from
+            long conversations and structures them into a clean report. It solves the privacy issue (nothing stored on
+            external servers) and works on demand.</p>
+        <p>But honestly? <strong>You don't need my tool.</strong> Method #1 works fine if you're disciplined about it.
+        </p>
 
         <!-- CTA -->
         <div class="cta-box">
@@ -621,7 +638,8 @@ Constraints: Must work offline, <50MB app size</pre>
         </ul>
 
         <h2>The Bottom Line</h2>
-        <p>ChatGPT is a tool, not a notebook. You wouldn't write your thesis in Microsoft Word and then delete the file, trusting Word to remember it. Don't do the equivalent with ChatGPT.</p>
+        <p>ChatGPT is a tool, not a notebook. You wouldn't write your thesis in Microsoft Word and then delete the file,
+            trusting Word to remember it. Don't do the equivalent with ChatGPT.</p>
         <p>Pick a method. Start today. Your future self will thank you.</p>
 
     </div>
