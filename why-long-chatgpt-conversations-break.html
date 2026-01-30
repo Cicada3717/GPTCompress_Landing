@@ -11,6 +11,13 @@
         gtag('config', 'G-60DPE1ETV3');
     </script>
 
+    <!-- Force HTTPS and Non-WWW -->
+    <script>
+        if (window.location.hostname === 'www.gptcompress.com') {
+            window.location.replace('https://gptcompress.com' + window.location.pathname + window.location.search);
+        }
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Why Long ChatGPT Conversations Break (And How to Fix It) | GPTCompress</title>
