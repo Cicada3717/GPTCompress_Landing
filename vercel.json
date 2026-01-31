@@ -9,6 +9,19 @@
       "destination": "/robots.txt"
     }
   ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "gptcompress.com"
+        }
+      ],
+      "destination": "https://www.gptcompress.com/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/sitemap.xml",
